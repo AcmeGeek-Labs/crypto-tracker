@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tracker | Seven Sages</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>📈 Crypto Tracker</h1>
+            <p class="subtitle">Seven Sages</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search coins (e.g., bitcoin, eth)..." autocomplete="off">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
+
+        <main>
+            <div class="grid">
+                <!-- Coin Detail Card -->
+                <section id="coin-detail" class="card coin-detail hidden">
+                    <div class="coin-header">
+                        <img id="coin-icon" src="" alt="" class="coin-icon">
+                        <div>
+                            <h2 id="coin-name">--</h2>
+                            <span id="coin-symbol" class="symbol">--</span>
+                        </div>
+                        <button id="watchlist-btn" class="watchlist-btn" title="Add to watchlist">☆</button>
+                    </div>
+                    <div class="price-section">
+                        <span id="coin-price" class="price">$--</span>
+                        <span id="coin-change" class="change">--%</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="label">Market Cap</span>
+                            <span id="market-cap">--</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h Volume</span>
+                            <span id="volume">--</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h High</span>
+                            <span id="high-24h">--</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h Low</span>
+                            <span id="low-24h">--</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chart Card -->
+                <section id="chart-section" class="card chart-section hidden">
+                    <div class="chart-header">
+                        <h3>Price Chart</h3>
+                        <div class="chart-controls">
+                            <button class="time-btn active" data-days="7">7D</button>
+                            <button class="time-btn" data-days="30">30D</button>
+                            <button class="time-btn" data-days="90">90D</button>
+                            <button class="time-btn" data-days="365">1Y</button>
+                        </div>
+                    </div>
+                    <div id="chart-container" class="chart-container"></div>
+                </section>
+
+                <!-- Watchlist Card -->
+                <section class="card watchlist-section">
+                    <h3>👀 Watchlist</h3>
+                    <div id="watchlist" class="watchlist">
+                        <p class="empty-state">No coins in watchlist. Search and add some!</p>
+                    </div>
+                </section>
+
+                <!-- Top Movers Card -->
+                <section class="card movers-section">
+                    <h3>🔥 Top Movers (24h)</h3>
+                    <div class="movers-tabs">
+                        <button class="mover-tab active" data-type="gainers">Gainers</button>
+                        <button class="mover-tab" data-type="losers">Losers</button>
+                    </div>
+                    <div id="movers-list" class="movers-list">
+                        <p class="loading">Loading...</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built by <a href="https://github.com/AcmeGeek-Labs/seven-sages">Seven Sages</a> 🦉⚖️</p>
+            <p>Data from <a href="https://www.coingecko.com/">CoinGecko</a></p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
